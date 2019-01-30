@@ -47,6 +47,16 @@ earthquakelayer = L.geoJson(earthquakejson).addTo(mymap);
 // change the map zoom so that all the data is shown
 mymap.fitBounds(earthquakelayer.getBounds());
 }
+function removeEarthquakeData() {
+alert("remove the earthquake data here");
+}
+// make sure that there is a variable for the earthquake layer to be referenced by
+// this should be GLOBAL – i.e. not inside a function – so that any code can see the variable
+var earthquakelayer;
+function removeEarthquakeData() {
+alert("Earthquake data will be removed");
+mymap.removeLayer( earthquakelayer );
+}
 </script>
 </head>
 <body>
@@ -56,6 +66,8 @@ mymap.fitBounds(earthquakelayer.getBounds());
 basemap tiles -->
 <button id="loadData" name="loadData" onclick="loadEarthquakeData()">Click here to load the
 data </button>
+<button id="removeEarthquakeData" name="removeEarthquakeData"
+onclick="removeEarthquakeData()">Click here to remove the Earthquake data </button>
 <script>
 // load the map
 var mymap = L.map('mapid').setView([51.505, -0.09], 13);
